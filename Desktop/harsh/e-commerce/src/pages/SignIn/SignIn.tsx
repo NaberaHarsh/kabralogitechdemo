@@ -63,7 +63,7 @@ class SignIn extends Component{
                         </IonRow>
                         <IonRow>
                             <IonCol>
-                                <IonButton expand="block" className='button-color'>
+                                <IonButton expand="block" className='button-color' routerLink="/home">
                                     <strong className="white">Sign In</strong>
                                 </IonButton>
                             </IonCol>

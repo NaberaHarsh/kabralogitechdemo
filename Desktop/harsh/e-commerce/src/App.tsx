@@ -2,15 +2,9 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import {
   IonApp,
-  IonIcon,
-  IonLabel,
-  IonRouterOutlet,
-  IonTabBar,
-  IonTabButton,
-  IonTabs
+  
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
 import * as ROUTES from './pages/Constants/routes'
 
 
@@ -34,6 +28,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
+import Home from './pages/Home/Home'
 
 const App: React.FC = () => (
   <IonApp>
@@ -41,7 +36,8 @@ const App: React.FC = () => (
       <Switch>
         <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
         <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
-       
+        <Route exact path={ROUTES.HOME} component={Home} />
+       <Redirect  from="/" to={ROUTES.SIGN_IN} />
       </Switch>
     </IonReactRouter>
   </IonApp>
