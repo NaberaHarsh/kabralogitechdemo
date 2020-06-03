@@ -2,14 +2,19 @@ import React, { Component } from 'react'
 import { IonPage, IonHeader, IonToolbar, IonSearchbar, IonMenuButton, IonButtons, IonContent, IonIcon, IonButton, IonTabs, IonTabBar, IonRouterOutlet, IonSegmentButton, IonLabel, IonSegment } from '@ionic/react'
 import Menu from '../Menu/Menu';
 import { filter, cart } from 'ionicons/icons'
+import { menuController } from '@ionic/core';
 
 
 class Home extends Component {
-    constructor(props: any) {
+    constructor(props: any,
+        ) {
         super(props)
     }
 
-
+    open(){
+        menuController.open('end')
+        }
+        
     render() {
         return (
             <>
@@ -22,20 +27,20 @@ class Home extends Component {
                             </IonButtons>
 
 
-                            <IonSearchbar slot="secondary" placeholder="I am shopping for..." ></IonSearchbar>
+                            <IonSearchbar slot="secondary" placeholder="I am shopping for..."  showCancelButton="focus" cancelButtonText="Custom Cancel" animated={true}></IonSearchbar>
                             <IonButtons slot="end">
                                 <IonButton>
                                     <IonIcon icon={cart} ></IonIcon>
 
                                 </IonButton>
-                                <IonButton>
+                                <IonButton onClick={this.open}>
                                     <IonIcon icon={filter}></IonIcon>
 
                                 </IonButton>
                             </IonButtons>
                         </IonToolbar >
                         <IonToolbar color="primary">
-                            <IonSegment scrollable >
+                            <IonSegment scrollable  >
                                 <IonSegmentButton value='value1'>
                                     <IonLabel>Popular</IonLabel>
                                 </IonSegmentButton>
