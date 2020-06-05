@@ -1,21 +1,33 @@
 import React, { Component } from 'react'
-import { IonPage, IonHeader, IonToolbar, IonSearchbar, IonMenuButton, IonButtons, IonContent, IonIcon, IonButton, IonTabs, IonTabBar, IonRouterOutlet, IonSegmentButton, IonLabel, IonSegment } from '@ionic/react'
+import { IonPage, IonHeader, IonToolbar, IonSearchbar, IonMenuButton, IonButtons, IonContent, IonIcon, IonButton, IonTabs, IonTabBar, IonRouterOutlet, IonSegmentButton, IonLabel, IonSegment, IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonCardTitle, IonCardHeader } from '@ionic/react'
 import Menu from '../Menu/Menu';
 import { filter, cart } from 'ionicons/icons'
 import { menuController } from '@ionic/core';
+import HomeJson from './HomeData';
 
 
 class Home extends Component {
-    constructor(props: any,
-        ) {
-        super(props)
+    state:any;
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            title: true,
+            segmentTab: 'Popular'
+        };
     }
 
     open(){
         menuController.open('end')
         }
-        
-    render() {
+
+        segmentChanged = (value: any) => {
+            this.setState({
+                segmentTab: value
+            })
+        }
+    render(){
+    const { segmentTab } = this.state;
+    
         return (
             <>
                 <Menu />
@@ -36,36 +48,36 @@ class Home extends Component {
                                 <IonButton onClick={this.open}>
                                     <IonIcon icon={filter}></IonIcon>
 
-                                </IonButton>
+                                 </IonButton>
                             </IonButtons>
                         </IonToolbar >
                         <IonToolbar color="primary">
-                            <IonSegment scrollable  >
-                                <IonSegmentButton value='value1'>
+                            <IonSegment scrollable mode="md" value={segmentTab} onIonChange={(e) => this.segmentChanged(e.detail.value)} >
+                                <IonSegmentButton value='Popular'>
                                     <IonLabel>Popular</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value2'>
+                                <IonSegmentButton value='Recently Viewed'>
                                     <IonLabel>Recently Viewed</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value3'>
+                                <IonSegmentButton value='Fashion'>
                                     <IonLabel>Fashion</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value4'>
+                                <IonSegmentButton value='Tops'>
                                     <IonLabel>Tops</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value5'>
+                                <IonSegmentButton value='Shoes'>
                                     <IonLabel>Shoes</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value6'>
+                                <IonSegmentButton value='Automotive'>
                                     <IonLabel>Automotive</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value7'>
-                                    <IonLabel>Buttom</IonLabel>
+                                <IonSegmentButton value='Bottom'>
+                                    <IonLabel>Bottom</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value8'>
+                                <IonSegmentButton value='Watches'>
                                     <IonLabel>Watches</IonLabel>
                                 </IonSegmentButton>
-                                <IonSegmentButton value='value9'>
+                                <IonSegmentButton value='Wallets'>
                                     <IonLabel>Wallets and Bags</IonLabel>
                                 </IonSegmentButton>
                             </IonSegment> 
@@ -73,6 +85,206 @@ class Home extends Component {
 
                     </IonHeader>
 
+                    {segmentTab === 'Popular' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    {segmentTab === 'Recently Viewed' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    {segmentTab === 'Fashion' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    {segmentTab === 'Tops' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    {segmentTab === 'Shoes' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    {segmentTab === 'Automotive' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    {segmentTab === 'Bottom' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    {segmentTab === 'Watches' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+        </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+
+        {segmentTab === 'Wallets' &&
+                    <IonContent>
+<IonGrid>
+    <IonRow>
+        {HomeJson.Product.map((data,index)=>{
+            return(
+            <IonCol sizeMd="3" sizeLg="3" sizeSm="6" sizeXs="6" >
+                <IonCard routerLink={`/product_detail/${data.id}`} >
+                    <img src={data.img1}></img>
+                    <IonCardHeader>
+              <IonCardTitle >{data.price}
+                   </IonCardTitle >
+                   </IonCardHeader>
+        <IonCardContent>{data.boughtby}+ bought this</IonCardContent>
+                </IonCard>
+            </IonCol>
+            )
+        })}
+    </IonRow>
+</IonGrid>
+                    </IonContent>
+    }
+    
 
                 </IonPage>
             </>

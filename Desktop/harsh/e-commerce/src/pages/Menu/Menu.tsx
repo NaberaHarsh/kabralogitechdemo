@@ -15,39 +15,17 @@ class Menu extends Component {
             rating: false,
             selected: '4',
             colorNames: [
-                {
-                    name: 'Black'
-                },
-                {
-                    name: 'Brown'
-                },
-                {
-                    name: 'Red'
-                },
-                {
-                    name: 'Green'
-                },
-                {
-                    name: 'Grey'
-                },
-                {
-                    name: 'Yellow'
-                },
-                {
-                    name: 'Blue'
-                },
-                {
-                    name: 'Pink'
-                },
-                {
-                    name: 'Orange'
-                },
-                {
-                    name: 'Purple'
-                },
-                {
-                    name: 'White'
-                },
+                {name: 'Black'},
+                {name: 'Brown'},
+                {name: 'Red'},
+                {name: 'Green'},
+                {name: 'Grey'},
+                {name: 'Yellow'},
+                {name: 'Blue'},
+                {name: 'Pink'},
+                {name: 'Orange'},
+                {name: 'Purple'},
+                {name: 'White'},
 
             ]
         }
@@ -91,54 +69,76 @@ class Menu extends Component {
 
                     <IonContent>
                         <IonList>
-                            <IonItem>
+                            <IonMenuToggle>
+                            <IonItem routerLink="/home">
                                 <IonIcon icon={home} slot="start"></IonIcon>
                                 <IonLabel>Browse</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={search} slot="start"></IonIcon>
                                 <IonLabel>Search</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={notifications} slot="start"></IonIcon>
                                 <IonLabel>Notification</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={cart} slot="start"></IonIcon>
                                 <IonLabel>Shopping Cart</IonLabel>
                                 <IonBadge color="danger" class="label-subtext">6</IonBadge>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={options} slot="start"></IonIcon>
                                 <IonLabel>Order History</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={wallet} slot="start"></IonIcon>
                                 <IonLabel>Wish Cash</IonLabel>
                                 <span className="label-subtext">: <span className="mycolor">$0.00</span></span>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={gift} slot="start"></IonIcon>
                                 <IonLabel>Rewards</IonLabel>
                                 <span className="label-subtext">: <span className="mycolor">100 Points</span></span>
 
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={megaphone} slot="start"></IonIcon>
                                 <IonLabel>Apply Promo</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={people} slot="start"></IonIcon>
                                 <IonLabel>Customer Support</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={helpCircle} slot="start"></IonIcon>
                                 <IonLabel>FAQs</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
+                            <IonMenuToggle>
                             <IonItem>
                                 <IonIcon icon={settings} slot="start"></IonIcon>
                                 <IonLabel>Settings</IonLabel>
                             </IonItem>
+                            </IonMenuToggle>
                         </IonList>
                     </IonContent>
                 </IonMenu>
