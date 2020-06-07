@@ -5,7 +5,7 @@ import { Container, Paper, Card,Button, CardContent, Grid, CardMedia, Typography
 import StarRateIcon from '@material-ui/icons/StarRate';
 import CustomizedSnackbars from './Snackbar';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-
+import _ from 'lodash';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -78,9 +78,14 @@ setType("success")
                 <Typography >Price: ${users.price}</Typography>
 
                 </Grid>
-                <Grid md={6} lg={6} sm={6} xs={6} >                
-                
-                <Typography>Rating:{users.rating}<StarRateIcon style={{ verticalAlign:'bottom'}} /></Typography>
+                <Grid md={6} lg={6} sm={6} xs={6}> <span style={{verticalAlign:'super'}}>Rating:</span>              
+{_.times(users.rating,i =>{
+    return(
+        <StarRateIcon />
+
+    )
+})}
+                {/* <Typography>Rating:{users.rating}<StarRateIcon style={{ verticalAlign:'bottom'}} /></Typography> */}
 
                 </Grid>
 

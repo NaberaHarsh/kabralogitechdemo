@@ -15,7 +15,7 @@ import Divider from "@material-ui/core/Divider";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AppsIcon from '@material-ui/icons/Apps';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Badge from '@material-ui/core/Badge';
+import { Badge, Tooltip}  from '@material-ui/core';
 
 
 
@@ -80,6 +80,7 @@ class Appbar extends React.Component {
 
 
           <Link to="/cart" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Tooltip title="Cart">
 
             <IconButton edge="end"  color="inherit" aria-label="menu">
             <Badge badgeContent={this.props.cartLength} color="secondary" style={{display:'inline'}}>
@@ -87,6 +88,7 @@ class Appbar extends React.Component {
               <ShoppingCartIcon/>
               </Badge>
             </IconButton>
+            </Tooltip>
             </Link>
 
           </Toolbar>
@@ -102,7 +104,7 @@ class Appbar extends React.Component {
           onClose={this.onClose}
         >
           <MenuItem>
-            <span style={{ textAlign: "center", paddingLeft: "20px", paddingRight: '20px', fontSize: "20px", backgroundColor: 'primary' }}>Kabra Dashboard</span>
+            <span style={{ textAlign: "center", paddingLeft: "20px", paddingRight: '20px', fontSize: "20px", backgroundColor: 'primary' }}>Food Dashboard</span>
           </MenuItem>
           <Divider />
 

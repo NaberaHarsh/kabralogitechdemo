@@ -33,7 +33,7 @@ class Cart extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            quantity:[1,1,1,1,1,1,1,1,1,1],
+            quantity:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
             cartItem:this.props.cartData,
             open:false
         }
@@ -241,7 +241,7 @@ this.setState({quantity : newArray})
                       <Button
                       fullWidth
                         variant="contained"
-                        style={{ backgroundColor: "black", color: "white" }}
+                        color="primary"
                         onClick={() => {
                          this.handleOpen()
                         }}
