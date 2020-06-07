@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { Component} from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import {
   IonApp,
@@ -30,19 +30,38 @@ import SignIn from './pages/SignIn/SignIn';
 import SignUp from './pages/SignUp/SignUp';
 import Home from './pages/Home/Home'
 import ProductDetails from './pages/Home/ProductDetail';
+import { render } from '@testing-library/react';
 
-const App: React.FC = () => (
-  <IonApp>
+class App extends Component{
+  state:any;
+  constructor(props:any){
+    super(props);
+    this.state={
+      item:''
+    }
+  }
+
+handleClick=(item:any)=>{
+  this.setState({item:item})
+}
+
+
+render(){
+  return(
+    <IonApp>
     <IonReactRouter>
       <Switch>
         <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
         <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
-        <Route exact path={ROUTES.HOME} component={Home} />
-        <Route exact path={`${ROUTES.PRODUCT_DETAIL}/:id`} component={ProductDetails} />
+        <Route exact path={ROUTES.HOME} render={(props)=> <Home  {...props} />  } />
+        <Route exact path={`${ROUTES.PRODUCT_DETAIL}/:id`} render={(props)=> <ProductDetails {...props}  /> } />
        <Redirect  from="/" to={ROUTES.SIGN_IN} />
       </Switch>
     </IonReactRouter>
   </IonApp>
-);
+  )
+}
+
+}
 
 export default App;
