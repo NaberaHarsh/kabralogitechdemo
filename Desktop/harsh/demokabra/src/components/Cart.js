@@ -33,41 +33,69 @@ class Cart extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            quantity:1,
+            quantity:[1,1,1,1,1,1,1,1,1,1],
             cartItem:this.props.cartData,
             open:false
         }
     }
 
+   
     IncrementItem(p) {
-        let plus = this.state.quantity
-        this.setState({ quantity: ++plus });
-      }
+      const newArray = Array.from(this.state.quantity);
+ let plus = this.state.quantity[p]
+ ++plus;
+ newArray[p] = plus   
+this.setState({quantity : newArray})
+}
       DecreaseItem(p) {
-    let minus = this.state.quantity;
+        const newArray = Array.from(this.state.quantity);
+    let minus = this.state.quantity[p];
         if(minus === 0)
         {this.setState({quantity:0})
       }
       else{
-        this.setState({quantity:--minus})
+        --minus;
+        newArray[p]= minus
+        this.setState({quantity:newArray})
       }
       if(minus==0){
           this.state.cartItem.splice(p,1);
+
+          let x= this.state.quantity;
+          x.splice(p,1)
+          this.setState({
+              quantity:x
+                  })
+
           this.props.reduce();
       }
     }
 
     erase(item){
-         this.state.cartItem.splice(item,1);
-        
-    }
+      let x= this.state.cartItem;
+      x.splice(item,1)
+      this.setState({
+          cartItem:x
+              }) 
+
+              let y= this.state.quantity;
+          y.splice(item,1)
+          this.setState({
+              quantity:y
+                  })
+
+                  this.props.reduce();
+     
+                }
+
     handleOpen = () => {
         this.setState({open:true})
       };
     
        handleClose = () => {
         this.setState({open:false});
-        this.state.cartItem.splice(0,this.state.cartItem.length);
+        this.props.cartData.splice(0,this.state.cartItem.length);
+        this.props.count();
       };
 
     render() {
@@ -92,7 +120,7 @@ class Cart extends React.Component {
                         <Grid item xs={12} sm={12} xl={8} lg={8} md={8} >
                             {
                                 this.state.cartItem.map((data,index) => {
-                                    return (
+                                    return (          
                                         <Card style={{ marginBottom: '8px', padding: '20px' }}>
                                             <Grid container spacing={2}>
                                                 <Grid md={4} lg={4} sm={6} xs={6} >
@@ -112,18 +140,18 @@ class Cart extends React.Component {
                                                             {data.title}
                                                         </Grid>
                                                         <Grid md={3} lg={3} sm={12} xs={12} >
-                                                        {quantity} x  ${data.price}
+                                                        {quantity[index]} x  ${data.price}
                                                         </Grid>
                                                         <Grid md={2} lg={2} sm={12} xs={12}>
                                                         <b>$
-                                                        {Math.round(quantity*data.price).toFixed(2)}</b>
+                                                        {Math.round(quantity[index]*data.price).toFixed(2)}</b>
 
                                                         </Grid>
                                                         <Grid md={2} lg={2} sm={6} xs={6}
                                                             style={{ textAlign: "center" }}>
                                                             <AddIcon
-                                onClick={() => {
-                                  this.IncrementItem(data);
+                                onClick={(event) => {
+                                  this.IncrementItem(index,event);
                                 }}
                                 style={{
                                   display: "inline",
@@ -144,7 +172,8 @@ class Cart extends React.Component {
                                   paddingTop:'0px'
                                 }}
                               >
-                                {this.state.quantity}
+                              {this.state.quantity[index]}
+
                               </div>
                               <RemoveIcon
                                 style={{
@@ -154,8 +183,8 @@ class Cart extends React.Component {
                                   width: "20px",
                                   paddingTop:'0px'
                                 }}
-                                onClick={() => {
-                                  this.DecreaseItem(data);
+                                onClick={(event) => {
+                                  this.DecreaseItem(index,event);
                                 }}
                                 
                               />
@@ -171,7 +200,7 @@ class Cart extends React.Component {
                                     paddingTop:'2px'
                                   }}
                                   onClick={() =>
-                                    {this.erase(data);}
+                                    {this.erase(index);}
                                   }
                                   
                                 />
@@ -182,6 +211,7 @@ class Cart extends React.Component {
                                                 </Grid>
                                             </Grid>
                                         </Card>
+
                                     )
                                 })
                             }
@@ -196,8 +226,8 @@ class Cart extends React.Component {
                       <Grid container spacing={2}>
                         <Grid md={6} lg={6} sm={6} xs={6} style={{textAlign:'initial'}}>TOTAL:{" "}</Grid>
                         <Grid md={6} lg={6} sm={6} xs={6} style={{textAlign:'end'}}>
-                        ${this.props.cartData.reduce(
-                          (sum, p) => sum + Math.round(quantity*p.price),
+                        ${this.state.cartItem.reduce(
+                          (sum, p,index) => sum + Math.round(quantity[index]*p.price),
                           0
                         )}
                           

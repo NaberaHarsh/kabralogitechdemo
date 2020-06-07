@@ -6,6 +6,7 @@ import StarRateIcon from '@material-ui/icons/StarRate';
 import CustomizedSnackbars from './Snackbar';
 import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles((theme) =>
   createStyles({
     card_actions: {
@@ -84,12 +85,10 @@ setType("success")
                 </Grid>
 
             </Grid>
-                
           <CardActions className={classes.card_actions}>
               
-            <Button  variant="contained" color='primary' style={{width:'100%'}} onClick={()=>{handleData(users); handleAddedData();}}>Add To Cart</Button>
+                <Button  variant="contained" color='primary' style={{width:'100%'}} onClick={()=>{handleData(users); handleAddedData();}}>Add To Cart</Button>
             </CardActions>        
-                      
                   </CardContent>
               </Card>
               </Grid>

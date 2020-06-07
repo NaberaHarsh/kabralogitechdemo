@@ -16,7 +16,8 @@ class App extends React.Component{
       count:0
     }
     this.handleData = this.handleData.bind(this);
-    this.reduceCartItem=this.reduceCartItem.bind(this)
+    this.reduceCartItem=this.reduceCartItem.bind(this);
+    this.countZero=this.countZero.bind(this);
   }
 
   handleData(data){
@@ -27,8 +28,10 @@ console.log(this.state.cartData)
 
   reduceCartItem(){
     this.setState({count:this.state.count-1});
-
   }
+countZero(){
+  this.setState({count:0})
+}
 
   render(){
   return (
@@ -37,7 +40,7 @@ console.log(this.state.cartData)
     <div className="App">
       <PrimarySearchAppBar cartLength={this.state.count}/>
       <Route exact path="/product" render={()=> <Product handleData={this.handleData} /> }  />
-     <Route exact path="/cart" render={()=> <Cart cartData={this.state.cartData} reduce={this.reduceCartItem} /> }   />
+     <Route exact path="/cart" render={()=> <Cart cartData={this.state.cartData} count={this.countZero} reduce={this.reduceCartItem} /> }   />
      <Redirect exact from="/" to="/product"/>
     </div>
     </Router>
