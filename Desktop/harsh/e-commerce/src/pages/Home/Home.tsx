@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { IonPage, IonHeader, IonToolbar, IonSearchbar, IonMenuButton, IonButtons, IonContent, IonIcon, IonButton, IonTabs, IonTabBar, IonRouterOutlet, IonSegmentButton, IonLabel, IonSegment, IonGrid, IonRow, IonCol, IonCard, IonCardContent, IonCardTitle, IonCardHeader } from '@ionic/react'
 import Menu from '../Menu/Menu';
-import { filter, cart } from 'ionicons/icons'
+import { filter, cart, search } from 'ionicons/icons'
 import { menuController } from '@ionic/core';
 import HomeJson from './HomeData';
+import { Redirect } from 'react-router';
 
 
 class Home extends Component {
@@ -12,8 +13,17 @@ class Home extends Component {
         super(props);
         this.state = {
             title: true,
-            segmentTab: 'Popular'
+            segmentTab: 'Popular',
+            search:false
         };
+    }
+
+    handleSearch(){
+        if(this.state.search==true){
+            return(
+                <Redirect from="/home" to="/search" />
+            )
+        }
     }
 
     open(){
@@ -39,8 +49,13 @@ class Home extends Component {
                             </IonButtons>
 
 
-                            <IonSearchbar slot="secondary" placeholder="I am shopping for..."  showCancelButton="focus" cancelButtonText="Custom Cancel" animated={true}></IonSearchbar>
-                            <IonButtons slot="end">
+                            <IonSearchbar slot="secondary" placeholder="I am shopping for..."  showCancelButton="focus" cancelButtonText="Custom Cancel" animated={true}
+                            onIonFocus={()=>{
+                                    this.setState({search:true});
+                                    this.handleSearch()
+                            }}
+                            ></IonSearchbar>
+                       <IonButtons slot="end">
                                 <IonButton>
                                     <IonIcon icon={cart} ></IonIcon>
 

@@ -31,6 +31,7 @@ import SignUp from './pages/SignUp/SignUp';
 import Home from './pages/Home/Home'
 import ProductDetails from './pages/Home/ProductDetail';
 import { render } from '@testing-library/react';
+import Search from './pages/Search/SearchPage';
 
 class App extends Component{
   state:any;
@@ -55,6 +56,7 @@ render(){
         <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
         <Route exact path={ROUTES.HOME} render={(props)=> <Home  {...props} />  } />
         <Route exact path={`${ROUTES.PRODUCT_DETAIL}/:id`} render={(props)=> <ProductDetails {...props}  /> } />
+        <Route exact path={ROUTES.SEARCH} component={Search} />
        <Redirect  from="/" to={ROUTES.SIGN_IN} />
       </Switch>
     </IonReactRouter>

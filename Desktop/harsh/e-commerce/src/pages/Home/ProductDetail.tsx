@@ -178,6 +178,25 @@ class ProductDetails extends Component {
                                         </IonCol>
                                     </IonRow>
 <IonItemDivider></IonItemDivider>
+<IonRow>     <IonLabel><h2>Sold By</h2></IonLabel>
+</IonRow>
+
+<IonRow>
+        <IonCol sizeMd="1" sizeLg="1"  sizeSm="3" sizeXs="3">
+    <IonAvatar class="ion-margin-vertical">
+                                        <IonImg  src={data.img1}></IonImg>
+                                    </IonAvatar>
+    </IonCol>
+    <IonCol sizeMd="8" sizeLg="8"  sizeSm="6" sizeXs="6">
+        <IonLabel ><h2> Seller</h2></IonLabel>
+        <IonRow>
+            <IonCol>
+             <IonText> 10890 Ratings </IonText> <br/>
+            </IonCol>
+</IonRow>
+</IonCol>
+</IonRow>
+<IonItemDivider></IonItemDivider>
 <IonRow>
     <IonCol>
     <IonLabel className='ion-no-padding LAbelHeightExpandable'>
@@ -329,14 +348,14 @@ class ProductDetails extends Component {
 <br/>
                                        <div className="sep"></div>
 <IonRow  class="row ion-align-items-center">
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn">All</IonText></IonButton>
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={image}></IonIcon></IonText></IonButton>
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn">Top Rated</IonText></IonButton>
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star} ></IonIcon></IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn">All</IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={image}></IonIcon></IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn">Top Rated</IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star} ></IonIcon></IonText></IonButton>
 </IonRow>
 <br/>
                                        <IonRow>
@@ -402,14 +421,14 @@ class ProductDetails extends Component {
 <br/>
                                        <div className="sep"></div>
 <IonRow  class="row ion-align-items-center">
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn">All</IonText></IonButton>
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={image}></IonIcon></IonText></IonButton>
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn">Top Rated</IonText></IonButton>
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /></IonText></IonButton>
-  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText class="filter-btn"><IonIcon icon={star} ></IonIcon></IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn">All</IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={image}></IonIcon></IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn">Top Rated</IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star}/><IonIcon icon={star} /></IonText></IonButton>
+  <IonButton  style={{marginLeft:'3px'}} fill="outline"  color="medium" class="btn ion-no-padding ion-no-margin"><IonText style={{paddingLeft:'5px', paddingRight:'5px'}} class="filter-btn"><IonIcon icon={star} ></IonIcon></IonText></IonButton>
 </IonRow>
 <br/>
                                        <IonRow>
