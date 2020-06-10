@@ -32,6 +32,7 @@ import Home from './pages/Home/Home'
 import ProductDetails from './pages/Home/ProductDetail';
 import { render } from '@testing-library/react';
 import Search from './pages/Search/SearchPage';
+import Menu from './pages/Menu/Menu';
 
 class App extends Component{
   state:any;
@@ -51,6 +52,7 @@ render(){
   return(
     <IonApp>
     <IonReactRouter>
+      <Menu />
       <Switch>
         <Route exact path={ROUTES.SIGN_IN} component={SignIn} />
         <Route exact path={ROUTES.SIGN_UP} component={SignUp} />
