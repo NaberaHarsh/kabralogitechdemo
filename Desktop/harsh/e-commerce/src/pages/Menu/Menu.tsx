@@ -76,13 +76,13 @@ class Menu extends Component {
                             </IonItem>
                             </IonMenuToggle>
                             <IonMenuToggle>
-                            <IonItem>
+                            <IonItem routerLink="/search">
                                 <IonIcon icon={search} slot="start"></IonIcon>
                                 <IonLabel>Search</IonLabel>
                             </IonItem>
                             </IonMenuToggle>
                             <IonMenuToggle>
-                            <IonItem>
+                            <IonItem routerLink="/notification">
                                 <IonIcon icon={notifications} slot="start"></IonIcon>
                                 <IonLabel>Notification</IonLabel>
                             </IonItem>

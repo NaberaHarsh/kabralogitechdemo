@@ -57,11 +57,11 @@ class Home extends Component {
                             ></IonSearchbar>
                        <IonButtons slot="end">
                                 <IonButton>
-                                    <IonIcon icon={cart} ></IonIcon>
+                                    <IonIcon style={{fontSize:'24px'}}  icon={cart} ></IonIcon>
 
                                 </IonButton>
                                 <IonButton onClick={this.open}>
-                                    <IonIcon icon={filter}></IonIcon>
+                                    <IonIcon style={{fontSize:'24px'}} icon={filter}></IonIcon>
 
                                  </IonButton>
                             </IonButtons>

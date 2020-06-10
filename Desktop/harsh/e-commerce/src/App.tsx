@@ -33,6 +33,7 @@ import ProductDetails from './pages/Home/ProductDetail';
 import { render } from '@testing-library/react';
 import Search from './pages/Search/SearchPage';
 import Menu from './pages/Menu/Menu';
+import Notification from './pages/Notifications/Notifications'
 
 class App extends Component{
   state:any;
@@ -59,6 +60,7 @@ render(){
         <Route exact path={ROUTES.HOME} render={(props)=> <Home  {...props} />  } />
         <Route exact path={`${ROUTES.PRODUCT_DETAIL}/:id`} render={(props)=> <ProductDetails {...props}  /> } />
         <Route exact path={ROUTES.SEARCH} component={Search} />
+        <Route exact path={ROUTES.NOTIFICATION} component={Notification} />
        <Redirect  from="/" to={ROUTES.SIGN_IN} />
       </Switch>
     </IonReactRouter>

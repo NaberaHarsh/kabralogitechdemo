@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { IonPage, IonHeader, IonToolbar, IonButtons,IonButton,IonText,IonIcon, IonSearchbar, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonItemDivider } from '@ionic/react';
+import { IonPage, IonHeader, IonToolbar, IonButtons,IonButton,IonText,IonIcon, IonSearchbar, IonContent, IonGrid, IonRow, IonCol, IonLabel, IonItemDivider, IonMenuButton } from '@ionic/react';
 import HomeJson from '../Home/HomeData'
 import { search } from 'ionicons/icons';
+import Menu from '../Menu/Menu';
 
 class Search extends Component{
     state:any;
@@ -14,12 +15,17 @@ class Search extends Component{
     }
     render(){
         return(
-            <IonPage>
+            <>
+            <Menu/>
+            <IonPage id="main">
                 <IonHeader>
                     <IonToolbar color="primary">
-                        <IonButtons>
+                    <IonButtons slot="start">
+                                <IonMenuButton color="light" ></IonMenuButton>
+                            </IonButtons>
+                        
                             <IonSearchbar slot="secondary" placeholder="I am shopping for..."  showCancelButton="focus" cancelButtonText="Custom Cancel" animated={true}></IonSearchbar>
-                        </IonButtons>
+                        
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
@@ -67,6 +73,7 @@ class Search extends Component{
                     </IonGrid>
                 </IonContent>
             </IonPage>
+            </>
         )
     }
 
